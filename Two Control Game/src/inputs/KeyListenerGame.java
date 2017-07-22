@@ -12,17 +12,15 @@ public class KeyListenerGame extends KeyAdapter{
 		if (pressed.get(k) == null) pressed.put(k, false);
 		return pressed.get(k);
 	}
-
+	
 	@Override
 	public void keyPressed(KeyEvent ke) {
 		pressed.put(String.valueOf(ke.getKeyChar()), true);
-		System.out.println("Pressed");
 		
 		if (KeyListenerGame.isPressed(" ")) {
 			
 		}
 	}
-
 	@Override
 	public void keyReleased(KeyEvent ke) {
 		pressed.put(String.valueOf(ke.getKeyChar()), false);

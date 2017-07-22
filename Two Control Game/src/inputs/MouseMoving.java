@@ -10,7 +10,6 @@ public class MouseMoving extends MouseMotionAdapter {
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-		System.out.println("Moved");
 		x = e.getX();
 		y = e.getY();
 	}
