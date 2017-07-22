@@ -1,14 +1,15 @@
 package objects;
 
-import java.awt.Graphics;
-import java.awt.Point;
-
 import mainstuff.Main;
 import systemObjects.PointD;
 
-public class GameObject {
+import java.awt.*;
+
+public abstract class GameObject {
 	public PointD loc;
 	public String texture;
+
+    public abstract Point getSize();
 
 	public GameObject(PointD loc){
 		this.loc = loc;
@@ -16,7 +17,11 @@ public class GameObject {
 	// This is in Screen Coordinates
 	// This function never uses PointD p
 	public void render(int x, int y, Graphics g) {
-		g.drawImage(Main.allImages.get(texture), x, y, null);
-		
+        if (Main.allImages.containsKey(texture)) {
+            g.drawImage(Main.allImages.get(texture), x, y, null);
+        } else {
+            g.setColor(new Color(0,0,0));
+            g.fillRect(x, y, getSize().x, getSize().y);
+        }
 	}
 }

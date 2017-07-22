@@ -1,12 +1,12 @@
 package graphics;
 
-import java.awt.Graphics2D;
+import functions.LevelF;
 
-import mainstuff.Main;
+import java.awt.*;
 
 public class GGame {
-	public static void gogo(Graphics2D g){
-		
-		
-	}
+	public static void gogo(Graphics2D g) {
+        LevelF.currentLevel.render(g);
+
+    }
 }

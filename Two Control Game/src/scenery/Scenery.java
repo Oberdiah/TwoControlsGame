@@ -2,6 +2,8 @@ package scenery;
 
 import objects.GameObject;
 
-public class Scenery extends GameObject {
+import java.awt.*;
 
+public class Scenery extends GameObject {
+    public Point getSize() {return new Point(0,0);}
 }
