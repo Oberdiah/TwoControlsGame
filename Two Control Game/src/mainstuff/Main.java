@@ -30,8 +30,6 @@ public class Main extends JPanel{
 	@Override
 	public void paint(Graphics g) {
 		GGeneral.gogo((Graphics2D) g);
-
-
 	}
 
 	public static void main(String[] args) throws InterruptedException  {
