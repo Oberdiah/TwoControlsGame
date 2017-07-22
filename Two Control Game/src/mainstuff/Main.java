@@ -2,7 +2,12 @@ package mainstuff;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -12,6 +17,8 @@ import logic.MainTick;
 
 public class Main extends JPanel{
 
+	public static HashMap<String, BufferedImage> allImages = new HashMap<>();
+	
 	static JFrame frame = new JFrame("Jump the thing");
 	
 	public static GameState state = GameState.INGAME;
@@ -39,6 +46,14 @@ public class Main extends JPanel{
         long lastFpsTime = 0;
         long fps = 0;
         
+        File[] files = new File("Images").listFiles();
+        for (File file : files) {
+        	try {
+        	    allImages.put(file.getName(), ImageIO.read(file));
+        	} catch (IOException e) {
+        	}
+        }
+        
         while (true) {
            // work out how long its been since the last update, this
            // will be used to calculate how far the entities should
@@ -54,8 +69,7 @@ public class Main extends JPanel{
            
            // update our FPS counter if a second has passed since
            // we last recorded
-           if (lastFpsTime >= 1000000000)
-           {
+           if (lastFpsTime >= 1000000000) {
               System.out.println("(FPS: "+fps+")");
               lastFpsTime = 0;
               fps = 0;
