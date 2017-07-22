@@ -9,6 +9,4 @@ public class Init {
 		LevelF.nextLevel();
 		
 	}
-	
-	
 }
