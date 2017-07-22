@@ -39,16 +39,14 @@ public class Main extends JPanel{
 		System.out.println("Marmaladal Projectios");
 
 		Main game = new Main();
-		
-		
+
 		JTextField textField = new JTextField();
 		textField.addKeyListener(new KeyListenerGame());
 		game.addMouseListener(new MouseUpDown());
 		game.addMouseMotionListener(new MouseMoving());
 		frame.add(textField);
 		frame.add(game);
-		
-		
+
 		frame.setSize(1000, 1000);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
