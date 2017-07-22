@@ -6,7 +6,8 @@ import systemObjects.PointD;
 import java.awt.*;
 
 public class Scenery extends GameObject {
-    public Point getSize() {return new Point(0,0);}
+    private Point size = new Point(10, 10);
+    public Point getSize() {return size;}
     public Scenery(PointD loc) {
         super(loc);
     }

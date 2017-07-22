@@ -1,11 +1,10 @@
 package mainstuff;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import interactableObjects.jumps.Rock;
 import objects.GameObject;
 import objects.Level;
+
+import java.util.ArrayList;
 
 public class InitLevels {
 	public static void addLevelsSpam(){
@@ -15,6 +14,6 @@ public class InitLevels {
 		items.add(new Rock(5));
 		items.add(new Rock(6));
 		items.add(new Rock(7));
-		Level.allLevels.add(new Level(items, "First Level"));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
 	}
 }

@@ -3,7 +3,8 @@ package interactableObjects.jumps;
 import java.awt.*;
 
 public class Rock extends Jumps {
-    public Point getSize() {return new Point(10, 10); }
+    private Point size = new Point(5, 5);
+    public Point getSize() {return size; }
     public Rock(Integer beatsBefore) {
         super(beatsBefore);
     }

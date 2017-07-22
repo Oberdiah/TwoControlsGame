@@ -3,7 +3,9 @@ package interactableObjects.kills;
 import java.awt.*;
 
 public class Enemy extends Kills {
-    public Point getSize() {return new Point(10, 10); }
+    private Point size = new Point(5, 5);
+
+    public Point getSize() {return size; }
 
     public Enemy(Integer beatsBefore) {
         super(beatsBefore);
