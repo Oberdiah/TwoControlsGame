@@ -1,7 +1,6 @@
 package mainstuff;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +21,7 @@ public class Main extends JPanel{
 
 	public static HashMap<String, BufferedImage> allImages = new HashMap<>();
 
-	static JFrame frame = new JFrame("Jump the thing");
+	public static JFrame frame = new JFrame("Jump the thing");
 
 	public static GameState state = GameState.INGAME;
 
@@ -38,6 +37,7 @@ public class Main extends JPanel{
 		Main game = new Main();
 
 		JTextField textField = new JTextField();
+		textField.setFocusTraversalKeysEnabled(false);
 		textField.addKeyListener(new KeyListenerGame());
 		game.addMouseListener(new MouseUpDown());
 		frame.add(textField);
