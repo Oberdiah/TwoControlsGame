@@ -1,8 +1,8 @@
 package objects;
 
-import java.awt.Point;
+import systemObjects.PointD;
 
 public class GameObject {
-	public Point p;
+	public PointD p;
 	
 }
