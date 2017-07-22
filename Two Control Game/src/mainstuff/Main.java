@@ -11,7 +11,7 @@ import graphics.GGeneral;
 
 public class Main extends JPanel{
 
-	static JFrame frame = new JFrame("Game ver. 0.0.0.1");
+	static JFrame frame = new JFrame("Jump the thing");
 	
 	public static GameState state = GameState.INGAME;
 	
@@ -20,8 +20,7 @@ public class Main extends JPanel{
 		GGeneral.gogo((Graphics2D) g);
 		
 	}
-
-
+	
 	public static void main(String[] args) throws InterruptedException  {
 		// TODO Auto-generated method stub
 		System.out.println("Marmaladal Projectios");

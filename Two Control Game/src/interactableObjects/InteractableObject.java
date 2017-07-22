@@ -4,4 +4,5 @@ import objects.GameObject;
 
 public class InteractableObject extends GameObject {
 	
+	
 }
