@@ -7,9 +7,8 @@ import java.awt.*;
 
 public abstract class InteractableObject extends GameObject {
     Integer beatsBeforeSpawn;
-    public InteractableObject(PointD loc, Integer beatsBefore) {
-        super(loc);
-        this.beatsBeforeSpawn = beatsBefore;
+    public InteractableObject(Integer beatsBefore) {
+        super(new PointD(beatsBefore * 10, 0));
     }
 
     public abstract Point getSize();

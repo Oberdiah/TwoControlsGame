@@ -15,7 +15,6 @@ import javax.swing.JTextField;
 import enums.GameState;
 import graphics.GGeneral;
 import inputs.KeyListenerGame;
-import inputs.MouseMoving;
 import inputs.MouseUpDown;
 import logic.MainTick;
 
@@ -41,7 +40,6 @@ public class Main extends JPanel{
 		JTextField textField = new JTextField();
 		textField.addKeyListener(new KeyListenerGame());
 		game.addMouseListener(new MouseUpDown());
-		game.addMouseMotionListener(new MouseMoving());
 		frame.add(textField);
 		frame.add(game);
 

@@ -1,5 +1,6 @@
 package functions;
 
+import objects.GameObject;
 import objects.Level;
 
 public class LevelF {
@@ -9,7 +10,8 @@ public class LevelF {
 	
 	public static void nextLevel(){
 		currentLevel = Level.allLevels.get(levelNum - 1);
-		
+
+
 		
 		
 	}

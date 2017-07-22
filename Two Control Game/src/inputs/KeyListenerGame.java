@@ -16,13 +16,11 @@ public class KeyListenerGame extends KeyAdapter{
 	@Override
 	public void keyPressed(KeyEvent ke) {
 		pressed.put(String.valueOf(ke.getKeyChar()), true);
-		
-		if (KeyListenerGame.isPressed(" ")) {
-			
+
+		if(ke.getKeyChar() == 'a'){
+			System.out.println("Change");
 		}
-	}
-	@Override
-	public void keyReleased(KeyEvent ke) {
-		pressed.put(String.valueOf(ke.getKeyChar()), false);
+
+
 	}
 }
