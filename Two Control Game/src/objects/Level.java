@@ -8,9 +8,15 @@ public class Level {
 	public static ArrayList<Level> allLevels = new ArrayList<>();
 	
 	
-	ArrayList<SpawnedObject> objects;
-	String name;
+	public String name;
+	public Player p;
+	public ArrayList<GameObject> objects = new ArrayList<>();
 	
+	public void render(Graphics g) {
+		for (GameObject o : objects) {
+			
+		}
+	}
 	
 	public Level (ArrayList<SpawnedObject> objects, String name){
 		this.objects = objects;
