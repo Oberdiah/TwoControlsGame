@@ -3,7 +3,13 @@ package objects;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import interactableObjects.InteractableObject;
+
 public class Level {
+	public static ArrayList<Level> allLevels = new ArrayList<>();
+	
+	
+	public String name;
 	public Player p;
 	public ArrayList<GameObject> objects = new ArrayList<>();
 	
@@ -11,5 +17,10 @@ public class Level {
 		for (GameObject o : objects) {
 			
 		}
+	}
+	
+	public Level (ArrayList<GameObject> objects, String name){
+		this.objects = objects;
+		this.name = name;
 	}
 }
