@@ -17,6 +17,14 @@ import inputs.KeyListenerGame;
 import inputs.MouseUpDown;
 import logic.MainTick;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+
 public class Main extends JPanel{
 
 	public static HashMap<String, BufferedImage> allImages = new HashMap<>();
@@ -34,7 +42,7 @@ public class Main extends JPanel{
 		// TODO Auto-generated method stub
 		System.out.println("Marmaladal Projectios");
 
-		Main game = new Main();
+		game = new Main();
 
 		JTextField textField = new JTextField();
 		textField.setFocusTraversalKeysEnabled(false);
@@ -54,15 +62,17 @@ public class Main extends JPanel{
         final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
         long lastFpsTime = 0;
         long fps = 0;
-        
-        File[] files = new File("Images").listFiles();
-        for (File file : files) {
+
+        for (File file : new File("Images").listFiles()) {
         	try {
         	    allImages.put(file.getName(), ImageIO.read(file));
         	} catch (IOException e) {
+                System.out.println(e);
         	}
         }
-        
+
+
+
         while (true) {
            // work out how long its been since the last update, this
            // will be used to calculate how far the entities should
