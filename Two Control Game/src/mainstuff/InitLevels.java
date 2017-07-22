@@ -12,7 +12,9 @@ public class InitLevels {
 		// Add levels
 		ArrayList<GameObject> items = new ArrayList<GameObject>();
 		items.add(new Rock(4));
+		items.add(new Rock(5));
+		items.add(new Rock(6));
+		items.add(new Rock(7));
 		Level.allLevels.add(new Level(items, "First Level"));
-
 	}
 }
