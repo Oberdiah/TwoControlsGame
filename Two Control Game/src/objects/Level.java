@@ -26,7 +26,7 @@ public class Level {
 	public Level (ArrayList<GameObject> objects, String name){
 		this.objects = objects;
 		this.name = name;
-        player = new Player();
+        player = new Player(new PointD(0,0));
 	}
 
     public Point convertToScreen(PointD p) {
