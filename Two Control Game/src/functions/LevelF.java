@@ -1,5 +1,7 @@
 package functions;
 
+import enums.GameState;
+import mainstuff.InitLevels;
 import mainstuff.Main;
 import objects.GameObject;
 import objects.Level;
@@ -42,12 +44,27 @@ public final class LevelF {
     public static int getBPM(String song) {
         switch (song) {
             case "Cut_and_Dry":
-                return 122;
+                return 61;
+            case "Airship_Serenity":
+                return 74;
+            case "Doobly_Doo":
+                return 85;
             case "EDM_Detection_Mode":
                 return 128;
+            case "Furious_Freak":
+                return 160;
+            case "Mega_Hyper_UltraStorm":
+                return 220;
             default:
                 return 1000000;
         }
+    }
+    public static void finishGame(){
+        Main.state = GameState.INLEVELSELECT;
+
+        Main.allSongs.get(LevelF.currentLevel.song).stop();
+
+        InitLevels.addLevelsSpam();
     }
 }
 

@@ -1,6 +1,7 @@
 package mainstuff;
 
 import enums.GameState;
+import graphics.Cloud;
 import graphics.GGeneral;
 import inputs.KeyListenerGame;
 import inputs.MouseUpDown;
@@ -12,6 +13,8 @@ import logic.MainTick;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -30,13 +33,21 @@ public class Main extends JPanel {
 
     public static Main game;
 
-    private static boolean initialised = false;
+    public static boolean initialised = false;
 
     @Override
     public void paint(Graphics g) {
         if (initialised) {
             GGeneral.gogo((Graphics2D) g);
         }
+    }
+
+    public static void drawCenteredString(Graphics g, String text, Rectangle rect, Font font) {
+        FontMetrics metrics = g.getFontMetrics(font);
+        int x = rect.x + (rect.width - metrics.stringWidth(text)) / 2;
+        int y = rect.y + ((rect.height - metrics.getHeight()) / 2) + metrics.getAscent();
+        g.setFont(font);
+        g.drawString(text, x, y);
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -56,6 +67,22 @@ public class Main extends JPanel {
         frame.setSize(1000, 1000);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                GGeneral.clouds.clear();
+                for (int i = 0; i < 30; i++) {
+                    GGeneral.clouds.add(new Cloud());
+                }
+            }
+        });
+
+        try {
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("VCR_OSD_MONO_1.001.ttf")));
+        } catch (IOException|FontFormatException e) {
+            //Handle exception
+        }
 
         for (File f : new File("Songs").listFiles()) {
             String s = f.getName().split("\\.")[0];

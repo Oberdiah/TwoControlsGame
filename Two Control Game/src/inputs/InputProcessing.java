@@ -10,6 +10,9 @@ import objects.Level;
 public class InputProcessing {
 
     public static void input(Boolean typeOne){
+        if(!Main.initialised){
+            return;
+        }
         if(Main.state == GameState.INGAME){
             LevelF.currentLevel.player.action(typeOne);
 
@@ -25,7 +28,7 @@ public class InputProcessing {
         }else if(Main.state == GameState.INLEVELSELECT){
             if(typeOne){
                 GSelection.selected ++;
-                if(GSelection.selected >= Level.allLevels.size()){
+                if(GSelection.selected >= Level.allLevels.size() || !Level.allLevels.get(GSelection.selected).unlocked){
                     GSelection.selected = 0;
                 }
             }else{

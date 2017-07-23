@@ -8,4 +8,7 @@ public abstract class InteractableObject extends GameObject {
     public InteractableObject(Integer beatsBefore, String texture) {
         super(new PointD(beatsBefore * 10, 0), texture);
     }
+
+    public boolean counted = false;
+    public boolean tomWantedToDelete = false;
 }

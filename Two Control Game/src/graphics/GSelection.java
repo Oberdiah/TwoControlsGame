@@ -1,9 +1,12 @@
 package graphics;
 
+import functions.LevelF;
 import mainstuff.Main;
 import objects.Level;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class GSelection {
 
@@ -13,23 +16,40 @@ public class GSelection {
         Integer x = 0;
         Integer y = 0;
 
-        Integer fontSize = 20;
-        g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+        int size = 250;
+        int gap = 20;
+        int numInRow = 5;
+        int numInCol = Level.allLevels.size()/numInRow;
 
+        int xa = Main.game.getWidth()/2-numInRow*(size + gap)/2;
+        int ya = Main.game.getHeight()/2-numInCol*(size + gap);
 
-        for(Level l: Level.allLevels){
+        g.setColor(new Color(0, 0, 0));
+        g.setFont(new Font("VCR OSD Mono", Font.BOLD, 40));
+        g.drawString("Pick a level", xa, ya - 40);
+
+        for(Level l: new ArrayList<>(Level.allLevels)){
+            BufferedImage img;
             if(Level.allLevels.indexOf(l) == selected){
-                g.setColor(new Color(0, 255, 141));
-            }else{
-                g.setColor(new Color(0, 144, 255));
+                img = Main.allImages.get("SelectionButtonOn");
+            } else if(!l.unlocked){
+                img = Main.allImages.get("SelectionButtonLocked");
+            } else {
+                img = Main.allImages.get("SelectionButton");
             }
-            g.fillRect(100 + x * 220, 300 + y * 220, 200, 200);
 
-            g.setColor(new Color(0, 84, 255));
-            g.drawString((Level.allLevels.indexOf(l) + 1)+" "+l.name, 100 + x * 220, fontSize + 300 + y * 220);
+            g.drawImage(img, x*(size + gap) + xa, y*(size + gap) + ya, size, size, null);
+
+            g.setColor(new Color(255, 255, 255));
+
+            Main.drawCenteredString(g, l.name, new Rectangle(x * (size + gap) + xa, y * (size + gap) + ya, size, size / 4), new Font("VCR OSD Mono", Font.BOLD, 20));
+
+            if (l.unlocked) {
+                Main.drawCenteredString(g, LevelF.getBPM(l.song) + "BPM", new Rectangle(x*(size + gap) + xa, y*(size + gap) + ya+size/4, size, size/4*3), new Font("VCR OSD Mono", Font.BOLD, 50));
+            }
 
             x ++;
-            if(x >= 5) {
+            if(x >= numInRow) {
                 x = 0;
                 y++;
             }

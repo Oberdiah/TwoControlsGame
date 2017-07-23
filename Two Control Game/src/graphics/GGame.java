@@ -1,7 +1,6 @@
 package graphics;
 
 import functions.LevelF;
-import interactableObjects.InteractableObject;
 import mainstuff.Main;
 import systemObjects.PointD;
 
@@ -17,7 +16,11 @@ public class GGame {
             g.setColor(new Color(255, 66, 0));
             Point toDraw = LevelF.convertToScreen(new PointD(io,0));
             Point size = LevelF.convertToScreen(new PointD(10,0));
-            g.fillRect(toDraw.x,toDraw.y,-5 * LevelF.scale ,10);
+            //g.fillRect(toDraw.x,toDraw.y,-5 * LevelF.scale ,10);
         }
+
+        g.setColor(new Color(255, 50, 67));
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 100));
+        g.drawString(LevelF.currentLevel.player.lives + "", Main.game.getWidth() - 300, 200);
     }
 }
