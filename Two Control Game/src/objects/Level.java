@@ -40,6 +40,8 @@ public class Level {
 	public void render(Graphics g) {
         g.drawImage(Main.allImages.get("Sky"), 0, 0, Main.game.getWidth(), Main.game.getHeight(), null);
 
+        g.drawImage(Main.allImages.get("Dirt"), )
+
         LevelF.heightOfGround = Main.game.getHeight()/3;
 		for (GameObject o : objects) {
             Point screenCoords = LevelF.convertToScreen(o);
