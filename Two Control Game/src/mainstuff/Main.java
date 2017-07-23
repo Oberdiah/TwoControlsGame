@@ -31,7 +31,9 @@ public class Main extends JPanel{
 
 	public static JFrame frame = new JFrame("Jump the thing");
 
-	public static GameState state = GameState.INGAME;
+	public static Main game;
+
+	public static GameState state = GameState.INMENU;
 
 	@Override
 	public void paint(Graphics g) {
@@ -40,6 +42,8 @@ public class Main extends JPanel{
 
 	public static void main(String[] args) throws InterruptedException  {
 		// TODO Auto-generated method stub
+		Init.onGameStart();
+
 		System.out.println("Marmaladal Projectios");
 
 		game = new Main();
@@ -55,7 +59,7 @@ public class Main extends JPanel{
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Init.onGameStart();
+
 		
 		long lastLoopTime = System.nanoTime();
         final int TARGET_FPS = 100;

@@ -15,5 +15,10 @@ public class InitLevels {
 		items.add(new Rock(6));
 		items.add(new Rock(7));
 		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
 	}
 }

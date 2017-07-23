@@ -18,11 +18,11 @@ public final class LevelF {
     public static final int scale = 10;
     public static int heightOfGround = 400;
 
-    public static void nextLevel() {
-        levelNum++;
+    public static void loadLevel(Integer index){
+        levelNum = index + 1;
         currentLevel = Level.allLevels.get(levelNum - 1);
-    }
 
+    }
     public static Point convertToScreen(PointD p) {
         Point po = new Point(0, 0);
         po.y = (int) (-p.y * LevelF.scale) - LevelF.heightOfGround + Main.game.getHeight();

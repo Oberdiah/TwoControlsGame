@@ -32,7 +32,7 @@ public class KeyListenerGame extends KeyAdapter{
 
 			InputProcessing.input(true);
 		}
-		if(n==10||n==40||n==39||n==17||n==8||n==192||n==127||n==83||n==68){
+		if(n==10||n==40||n==39||n==17||n==8||n==192||n==127||n==83||n==68||n==66){
 			// Enter is 10
 			// Down is 40
 			// Right is 39
@@ -42,6 +42,7 @@ public class KeyListenerGame extends KeyAdapter{
 			// Delete 127
 			// S is 83
 			// D is 68
+			// B is 66
 			InputProcessing.input(false);
 		}
 
