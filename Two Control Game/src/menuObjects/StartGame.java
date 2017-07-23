@@ -1,5 +1,8 @@
 package menuObjects;
 
+import enums.GameState;
+import mainstuff.Main;
+
 public class StartGame extends MenuOption{
 
     public StartGame() {
@@ -7,6 +10,6 @@ public class StartGame extends MenuOption{
     }
     @Override
     public void onSelect() {
-
+        Main.state = GameState.INLEVELSELECT;
     }
 }

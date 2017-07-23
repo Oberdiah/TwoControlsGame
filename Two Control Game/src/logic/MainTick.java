@@ -6,7 +6,6 @@ public class MainTick {
 	private static Integer ticks = 0;
     public static Integer animationState = 0;
 
-
 	public static void goUpdates(double delta) {
 
 		ticks ++;
