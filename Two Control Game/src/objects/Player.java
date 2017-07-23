@@ -1,9 +1,6 @@
 package objects;
 
 import functions.LevelF;
-import interactableObjects.InteractableObject;
-import org.omg.CosNaming.IstringHelper;
-import printer.P;
 import systemObjects.PointD;
 
 import java.awt.*;
@@ -13,7 +10,8 @@ public class Player extends GameObject {
     public Integer shouldActionWhen;
     public Boolean actionIsOne;
     public Integer lives = 3;
-    public Point getSize() {return new Point(5, 5); }
+    private Point size = new Point(5, 5);
+    public Point getSize() { return size; }
 
     public static final Integer actionLeeway = 5;
 
@@ -29,6 +27,7 @@ public class Player extends GameObject {
     @Override
     public void tick(Double delta){
         this.loc.x += delta/10*((double) (LevelF.currentLevel.bpm)/60);
+
         if(this.jumpTime > 0){
             this.jumpTime --;
             if(this.jumpTime == 0){
