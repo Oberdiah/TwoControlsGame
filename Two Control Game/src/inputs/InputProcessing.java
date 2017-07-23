@@ -11,6 +11,7 @@ public class InputProcessing {
 
     public static void input(Boolean typeOne){
         if(Main.state == GameState.INGAME){
+            LevelF.currentLevel.player.action(typeOne);
 
         }else if(Main.state == GameState.INMENU){
             if(typeOne){

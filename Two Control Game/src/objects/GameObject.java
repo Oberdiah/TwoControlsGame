@@ -22,6 +22,9 @@ public abstract class GameObject {
         this.loc = loc;
         this.color = color;
     }
+    public void tick(Double delta){
+
+    }
 
 	// This is in Screen Coordinates
 	// This function never uses PointD p

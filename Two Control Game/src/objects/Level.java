@@ -1,7 +1,11 @@
 package objects;
 
 import functions.LevelF;
+import interactableObjects.InteractableObject;
+import interactableObjects.jumps.Jumps;
+import interactableObjects.kills.Kills;
 import mainstuff.Main;
+import printer.P;
 import systemObjects.PointD;
 
 import java.awt.*;
@@ -18,6 +22,17 @@ public class Level {
 	public String name;
 	public Player player;
 	public ArrayList<GameObject> objects = new ArrayList<>();
+
+
+	public ArrayList<InteractableObject> allIOs(){
+        ArrayList<InteractableObject> array = new ArrayList<>();
+        for(GameObject go: this.objects){
+            if(go instanceof InteractableObject){
+                array.add((InteractableObject) go);
+            }
+        }
+        return array;
+    }
 
 	public void render(Graphics g) {
         LevelF.heightOfGround = Main.game.getHeight()/3;
@@ -51,7 +66,11 @@ public class Level {
         // If BP'S' was 2, we want every delta * (1000/2)
         // If BPM was 2, we want every delta * (1000/(2/60))
 
-        player.loc.x += delta/10*(BPM/60);
+
+
+        for(GameObject go: this.objects){
+            go.tick(delta);
+        }
     }
 
     public void resetTicks() {
@@ -64,6 +83,21 @@ public class Level {
 
     public void start() {
         player = new Player(new PointD(0,0));
+        for(InteractableObject io: this.allIOs()){
+            player.jumpAtPos.add(io.loc.x);
+            P.p("Added " + io.loc.x);
+            if(io instanceof Jumps){
+                player.jumpAtTypeOne.add(true);
+            }else if(io instanceof Kills){
+                player.jumpAtTypeOne.add(false);
+            }else{
+                try {
+                    throw new Exception("Type of object which isn't Jumps or Kills");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         objects.add(player);
         bpm = LevelF.getBPM(song);
         Main.allSongs.get(song).play(true);

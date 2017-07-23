@@ -1,6 +1,7 @@
 package mainstuff;
 
 import interactableObjects.jumps.Rock;
+import interactableObjects.kills.Enemy;
 import objects.GameObject;
 import objects.Level;
 
@@ -10,7 +11,7 @@ public class InitLevels {
 	public static void addLevelsSpam(){
 		// Add levels
 		ArrayList<GameObject> items = new ArrayList<GameObject>();
-		items.add(new Rock(4));
+		items.add(new Enemy(4));
 		items.add(new Rock(5));
 		items.add(new Rock(6));
 		items.add(new Rock(7));
