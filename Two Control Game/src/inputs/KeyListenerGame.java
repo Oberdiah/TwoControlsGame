@@ -1,8 +1,8 @@
 package inputs;
 
 import enums.GameState;
-import javafx.scene.input.KeyCode;
 import mainstuff.Main;
+import printer.P;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -22,6 +22,7 @@ public class KeyListenerGame extends KeyAdapter{
 		pressed.put(String.valueOf(ke.getKeyChar()), true);
 		Integer n = ke.getKeyCode();
 
+        P.p("Helo");
 		if(n==32||n==16||n==155||n==87||n==65){
 			// Space is 32
 
