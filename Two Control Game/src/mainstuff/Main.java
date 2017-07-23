@@ -19,7 +19,8 @@ import java.util.HashMap;
 
 public class Main extends JPanel {
 
-    public static HashMap<String, BufferedImage[]> allImages = new HashMap<>();
+    public static HashMap<String, BufferedImage[]> allAnimations = new HashMap<>();
+    public static HashMap<String, BufferedImage> allImages = new HashMap<>();
     public static HashMap<String, Sound> allSounds = new HashMap<>();
     public static HashMap<String, Music> allSongs = new HashMap<>();
 
@@ -68,6 +69,15 @@ public class Main extends JPanel {
         for (File f : new File("Images").listFiles()) {
             try {
                 String s = f.getName().split("\\.")[0];
+                allImages.put(s, ImageIO.read(f));
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        }
+
+        for (File f : new File("Animations").listFiles()) {
+            try {
+                String s = f.getName().split("\\.")[0];
                 BufferedImage img = ImageIO.read(f);
                 int width = img.getWidth();
                 int height = img.getHeight();
@@ -75,7 +85,7 @@ public class Main extends JPanel {
                 for (int i = 0; i < height/width; i++) {
                     frames[i] = img.getSubimage(0, i*width, width, width);
                 }
-                allImages.put(s, frames);
+                allAnimations.put(s, frames);
             } catch (IOException e) {
                 System.out.println(e);
             }
@@ -106,7 +116,7 @@ public class Main extends JPanel {
             // update our FPS counter if a second has passed since
             // we last recorded
             if (lastFpsTime >= 1000000000) {
-                System.out.println("(FPS: " + fps + ")");
+                //System.out.println("(FPS: " + fps + ")");
                 lastFpsTime = 0;
                 fps = 0;
             }

@@ -5,9 +5,9 @@ import systemObjects.PointD;
 import java.awt.*;
 
 public class Player extends GameObject {
-    public Point getSize() {return new Point(10, 10); }
+    public Point getSize() {return new Point(5, 5); }
 
     public Player(PointD loc) {
-        super(loc, "walking_man");
+        super(loc, "Walking Man");
     }
 }

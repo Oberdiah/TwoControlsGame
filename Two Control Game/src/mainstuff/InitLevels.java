@@ -1,6 +1,7 @@
 package mainstuff;
 
 import interactableObjects.jumps.Rock;
+import interactableObjects.kills.Enemy;
 import objects.GameObject;
 import objects.Level;
 
@@ -14,11 +15,12 @@ public class InitLevels {
 		items.add(new Rock(5));
 		items.add(new Rock(6));
 		items.add(new Rock(7));
-		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
-		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
-		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
-		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
-		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
-		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry"));
+        items.add(new Enemy(10));
+		Level.allLevels.add(new Level(items, "EDM_Detection_Mode", "EDM_Detection_Mode", 100));
+		Level.allLevels.add(new Level(items, "Cut_and_Dry", "Cut_and_Dry", 100));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry", 100));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry", 100));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry", 100));
+		Level.allLevels.add(new Level(items, "First Level", "Cut_and_Dry", 100));
 	}
 }
