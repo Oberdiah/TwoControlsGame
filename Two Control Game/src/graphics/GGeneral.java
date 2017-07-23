@@ -1,12 +1,13 @@
 package graphics;
 
-import java.awt.*;
-
 import mainstuff.Main;
+
+import java.awt.*;
 
 public class GGeneral {
     public static void gogo(Graphics2D g) {
-        g.setColor(new Color(255, 83, 207));
+        g.setColor(new Color(198, 197, 255));
+        g.fillRect(0, 0, Main.frame.getWidth(), Main.frame.getHeight());
 
         switch (Main.state) {
             case INGAME:

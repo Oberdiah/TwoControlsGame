@@ -1,6 +1,7 @@
 package objects;
 
 import functions.LevelF;
+import logic.MainTick;
 import mainstuff.Main;
 import systemObjects.PointD;
 
@@ -30,7 +31,9 @@ public class Level {
         player = new Player(new PointD(0,0));
         objects.add(player);
         bpm = LevelF.getBPM(song);
+        Main.allSongs.get(song).play(true);
 
+        MainTick.resetTicks();
 	}
 }
 

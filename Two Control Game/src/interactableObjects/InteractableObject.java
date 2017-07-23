@@ -5,7 +5,7 @@ import systemObjects.PointD;
 
 public abstract class InteractableObject extends GameObject {
     Integer beatsBeforeSpawn;
-    public InteractableObject(Integer beatsBefore) {
-        super(new PointD(beatsBefore * 10, 0));
+    public InteractableObject(Integer beatsBefore, String texture) {
+        super(new PointD(beatsBefore * 10, 0), texture);
     }
 }

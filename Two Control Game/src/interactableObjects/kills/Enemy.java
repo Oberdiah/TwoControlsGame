@@ -8,6 +8,6 @@ public class Enemy extends Kills {
     public Point getSize() {return size; }
 
     public Enemy(Integer beatsBefore) {
-        super(beatsBefore);
+        super(beatsBefore, "Enemy");
     }
 }
