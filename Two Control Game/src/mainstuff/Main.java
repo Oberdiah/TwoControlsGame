@@ -25,7 +25,7 @@ public class Main extends JPanel {
 
     public static JFrame frame = new JFrame("Jump the thing");
 
-    public static GameState state = GameState.INGAME;
+    public static GameState state = GameState.INMENU;
 
     public static Main game;
 

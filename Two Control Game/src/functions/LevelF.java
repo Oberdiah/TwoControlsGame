@@ -21,6 +21,7 @@ public final class LevelF {
     public static void loadLevel(Integer index){
         levelNum = index + 1;
         currentLevel = Level.allLevels.get(levelNum - 1);
+        currentLevel.start();
 
     }
     public static Point convertToScreen(PointD p) {
